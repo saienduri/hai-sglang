@@ -20,7 +20,7 @@ class TestBenchServing(CustomTestCase):
 
     def test_offline_throughput_default(self):
         other_args = []
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         res = run_bench_serving(
@@ -42,7 +42,7 @@ class TestBenchServing(CustomTestCase):
 
     def test_offline_throughput_non_stream_small_batch_size(self):
         other_args = ["--max-running-requests", "10"]
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         res = run_bench_serving(
@@ -66,7 +66,7 @@ class TestBenchServing(CustomTestCase):
 
     def test_offline_throughput_without_radix_cache(self):
         other_args = ["--disable-radix-cache"]
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         res = run_bench_serving(
@@ -108,7 +108,7 @@ class TestBenchServing(CustomTestCase):
             "--context-length",
             "8192",
         ]
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         res = run_bench_serving(
@@ -130,7 +130,7 @@ class TestBenchServing(CustomTestCase):
 
     def test_offline_throughput_default_fp8(self):
         other_args = []
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
         res = run_bench_serving(
             model=DEFAULT_MODEL_NAME_FOR_TEST_FP8,
@@ -151,7 +151,7 @@ class TestBenchServing(CustomTestCase):
 
     def test_online_latency_default(self):
         other_args = []
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         res = run_bench_serving(

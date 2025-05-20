@@ -23,7 +23,7 @@ class TestTorchCompileMoe(CustomTestCase):
         cls.base_url = DEFAULT_URL_FOR_TEST
 
         other_args = ["--enable-torch-compile", "--torch-compile-max-bs", "4"]
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         cls.process = popen_launch_server(

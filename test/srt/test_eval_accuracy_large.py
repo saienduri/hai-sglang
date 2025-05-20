@@ -27,7 +27,7 @@ class TestEvalAccuracyLarge(CustomTestCase):
         cls.base_url = DEFAULT_URL_FOR_TEST
 
         other_args = ["--log-level-http", "warning"]
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         cls.process = popen_launch_server(

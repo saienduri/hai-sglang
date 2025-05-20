@@ -20,7 +20,7 @@ class TestTorchCompile(CustomTestCase):
     @classmethod
     def setUpClass(cls):
         other_args = ["--enable-torch-compile", "--cuda-graph-max-bs", "4"]
-        if os.environ.get("AMD_CI") == "1":
+        if os.environ.get("SGLANG_AMD_CI") == "1":
             other_args += ["--mem-frac", "0.7"]
 
         cls.model = DEFAULT_MODEL_NAME_FOR_TEST
